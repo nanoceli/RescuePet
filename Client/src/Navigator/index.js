@@ -1,37 +1,47 @@
 import * as React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen } from '../Screens/HomeScreen'
-import { DetailsScreen } from '../Screens/DetailsScreen'
-import { adoptarMascota } from '../Screens/adoptarMascota'
-import { Contacto } from '../Screens/Contacto'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { perros } from '../Screens/indexScreens/perros'
+import { gatos } from '../Screens/indexScreens/gatos'
+import { publicar } from '../Screens/indexScreens/publicar'
+import { index } from '../Screens/indexScreens/index'
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export const Main = () => {
+function TabBar(props) {
+    return <MaterialCommunityIcons size={30} style={{ marginBottom: -3 }} {...props} />;
+}
+
+export const Index = () => {
     return (
-        <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen
-                name="Home"
-                component={HomeScreen}
+        <Tab.Navigator
+            initialRouteName="Perros"
+            tabBarOptions={{
+                activeTintColor: '#B29640', activeBackgroundColor: '#E3FFF6'
+            }}>
+            
+            <Tab.Screen
+                name="Perros"
+                component={perros}
                 options={{
-                    title: 'Rescue Pet'
+                    tabBarIcon: ({ color }) => <TabBar name="dog" color={color} />,
+
                 }}
             />
-            <Stack.Screen
-                name="Details"
-                component={DetailsScreen}
-                options={{ title: 'Details' }}
-            />
-            <Stack.Screen
-                name="adoptarMascota"
-                component={adoptarMascota}
-                options={{ title: 'adoptarMascota' }}
-            />
-            <Stack.Screen
-                name="Contacto"
-                component={Contacto}
-                options={{ title: 'Contactanos' }}
-            />
-        </Stack.Navigator>
+            <Tab.Screen
+                name="Gatos"
+                component={gatos}
+                options={{
+                    tabBarIcon: ({ color }) => <TabBar name="cat" color={color} />,
+
+                }} />
+            <Tab.Screen
+                name="Publicar"
+                component={publicar}
+                options={{
+                    tabBarIcon: ({ color }) => <TabBar name="camera" color={color} />,
+
+                }} />
+        </Tab.Navigator>
     );
 }

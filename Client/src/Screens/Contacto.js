@@ -22,7 +22,7 @@ import { Formik } from 'formik';
 
 export const Contacto = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.formulario}> Formulario de Contacto </Text>
             <Formik
                 validateOnMount={true}
@@ -101,7 +101,11 @@ export const Contacto = () => {
 }
 
 const styles = StyleSheet.create({
-
+    container:{
+        flex: 6,
+        flexDirection:'column',
+        backgroundColor: '#FFA983'
+    },
     formulario: {
         color: Colors.black,
         fontSize: 18,
@@ -111,7 +115,6 @@ const styles = StyleSheet.create({
         paddingRight: 12,
         textAlign: 'center',
     },
-
     nombresyapellidos: {
         color: Colors.dark,
         fontSize: 18,
@@ -125,7 +128,6 @@ const styles = StyleSheet.create({
         borderColor: Colors.black,
         paddingRight: 12,
     },
-
     email: {
         color: Colors.dark,
         fontSize: 18,
@@ -139,7 +141,6 @@ const styles = StyleSheet.create({
         borderColor: Colors.black,
         paddingRight: 12,
     },
-
     telefono: {
         color: Colors.dark,
         fontSize: 18,
@@ -153,7 +154,6 @@ const styles = StyleSheet.create({
         borderColor: Colors.black,
         paddingRight: 12,
     },
-
     mensaje: {
         color: Colors.dark,
         fontSize: 18,
@@ -168,17 +168,15 @@ const styles = StyleSheet.create({
         borderColor: Colors.black,
         paddingRight: 12,
     },
-
     colorBtn: {
         borderWidth: 1,
         borderColor: '#007BFF',
         backgroundColor: '#007BFF',
-        padding: 15,
-        marginLeft: 20,
-        marginRight: 20,
+        padding: 10,
+        marginLeft: 50,
+        marginRight: 50,
         borderRadius: 7,
     },
-
     colorTxtBtn: {
         color: '#FFFFFF',
         fontSize: 20,
